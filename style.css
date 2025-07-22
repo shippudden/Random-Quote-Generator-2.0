@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sora:wght@100..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Sora", sans-serif;
+}
+
+.quote-box {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.quote-box, p {
+    font-size: 1.5rem;
+}
+
+#copy-msg {
+    display: none;
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+#copy-msg.show {
+  opacity: 1;
+}
+
+.new-quote {
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.new-quote:hover {
+    background-color: #0056b3;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal {
+    position: relative;
+    width: 35%;
+    height: auto;
+    padding: 2.5rem;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    transform: scale(0.9);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.overlay.active .modal {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.error-msg {
+    font-size: 1.2rem;
+}
+
+.hide {
+    display: none;
+}
+
+.save-message {
+    text-align: center;
+    display: none;
+}
+
+.fa-xmark {
+    position: absolute;
+    top: 3rem;
+    right: 2rem;
+    font-size: 2rem;
+    color: #343a40;
+    cursor: pointer;
+}
+
+.save-quote {
+    padding: 1rem 1.5rem;
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    transition: scale 0.3s ease;
+}
+
+.save-quote:hover {
+    background-color: #218838;
+    scale: 1.05;
+}
+
+h3 {
+    font-size: 2rem;
+    color: #343a40;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.add-quote {
+    position: absolute;
+    right: 3rem;
+    bottom: 3rem;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 3rem;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    transition: scale 0.3s ease;
+}
+
+.add-quote:hover {
+    background-color: #0056b3;
+    scale: 1.05;
+}
+
+.copy-quote {
+    padding: 1.2rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.copy-quote:hover {
+    background-color: #0056b3;
+}
+
+.fa-copy {
+    cursor: pointer;
+}
+
+.button-box {
+    display: flex;
+    flex-direction: row;
+    column-gap: 1rem;
+    align-items: center;
+}
+
+.fade {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    align-items: center;
+}
+
+.fade {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.fade.show {
+  opacity: 1;
+}
+
+.label-input {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+input {
+    padding: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+}
+
+label {
+    font-size: 1.5rem;
+    color: #000;
+}
+
+#particle-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  animation: float 10s infinite linear;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(0.5);
+    opacity: 0;
+  }
+}
+
+
+@media (max-width: 992px) {
+    #quote-content {
+        width: 70%;
+        text-align: center;
+    }
+
+    .modal {
+        width: 45%;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    #quote-content {
+        width: 80%;
+        text-align: center;
+    }
+
+    .modal {
+        width: 55%;
+        height: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .modal {
+        width: 70%;
+        height: auto;
+    }
+}

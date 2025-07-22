@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=	, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+</head>
+<body>
+    <div id="particle-background"></div>
+
+    <div class="overlay hidden" id="modal-overlay">
+        <div class="modal" id="modal">
+            <h3>Add your own quote</h3>
+            <i class="fa-solid fa-xmark" id="close-modal"></i>
+
+            <div class="label-input">
+                <label>Enter your quote:</label>
+                <input type="text" id="custom-quote" placeholder="Enter your quote here...">
+                <p class="error-msg hide" id="error-msg"></p>
+            </div>
+
+            <div class="label-input">
+                <label>Enter the author:</label>
+                <input type="text" id="custom-author" placeholder="Enter the author here...">
+                <p class="error-msg hide" id="err-msg"></p>
+            </div>
+
+            <button class="save-quote" id="save-quote">Save</button>
+            <p class="save-message" id="save-msg">Quote Saved</p>
+        </div>
+    </div>
+
+
+    <div class="quote-box" id="quotes">
+        <p id="copy-msg">Quote copied to clipboard!</p>
+
+        <div id="quote-content" class="fade show">
+            <p id="quote-text">
+                Click the button to get a quote!
+            </p>
+
+            <p class="quote-author" id="quote-author">
+                - Author
+            </p>
+        </div>
+
+        <div class="button-box">
+            <button class="new-quote" id="new-quote">New Quote</button>
+            <i class="fa-solid fa-copy" id="copy-quote"></i>
+        </div>
+
+        <button class="add-quote" id="add-quote"> 
+            <i class="fa-solid fa-plus"></i> Add Quote
+        </button>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
