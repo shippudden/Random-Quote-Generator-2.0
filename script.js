@@ -151,7 +151,7 @@ saveButton.addEventListener('click', () => {
 
         setTimeout(() => {
             saveMsg.style.display = 'none';
-            modalOverlay.classList.add('hidden');
+            modalOverlay.classList.add('hide');
         }, 1000); // hides after 1 second
     }
 });
